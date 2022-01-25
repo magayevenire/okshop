@@ -1,6 +1,14 @@
 @extends('shop')
 @section('content')
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">{{$categ->nom}}</li>
+        @foreach ($categ->enfant as $child)
+            <li class="breadcrumb-item"><a href="{{route('voir_produit_par_cat',['id'=>$child->id])}}">{{$child->nom}}</a></li>
+        @endforeach
 
+    </ol>
+</nav>
 <main role="main">
 
 

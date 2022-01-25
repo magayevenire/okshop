@@ -38,10 +38,10 @@
   <body>
 
     @include('layout.header')
-        
+
 
 <main>
-    <br> <br> <br>
+    
 
   @yield('content')
 
