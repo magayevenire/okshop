@@ -11,4 +11,5 @@ class Produit extends Model{
     public function categoy(){
         return $this->belongsTo(Categoy::class, 'categ', 'id');
     }
+    
 }

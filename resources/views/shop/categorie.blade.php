@@ -2,6 +2,9 @@
 @section('content')
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
+        @if ($categ->parent_id!==null)
+        <li class="breadcrumb-item active" aria-current="page"><a href="{{route('voir_produit_par_cat',['id'=>$categ->parent->id])}}">{{$categ->parent->nom}}</a></li>
+        @endif
         <li class="breadcrumb-item active" aria-current="page">{{$categ->nom}}</li>
         @foreach ($categ->enfant as $child)
             <li class="breadcrumb-item"><a href="{{route('voir_produit_par_cat',['id'=>$child->id])}}">{{$child->nom}}</a></li>
