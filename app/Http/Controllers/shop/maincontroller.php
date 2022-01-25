@@ -11,11 +11,13 @@ class maincontroller extends Controller
 {
     public function index(){
         $prod=Produit::all();
+        //dd($prod);
         return  view('shop.index',compact('prod'));
     }
 
     public function produit(Request $req){
         $prodi= Produit::where('ref',$req->ref)->get();
+        //dd($prodi);
         return view('shop.produit',compact('prodi'));
     }
 

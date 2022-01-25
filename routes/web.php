@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', "App\Http\Controllers\shop\maincontroller@index");
+Route::get('/', "App\Http\Controllers\shop\maincontroller@index")->name('homepage');
 Route::get('/produit/{ref}','App\Http\Controllers\shop\maincontroller@produit')->name('voir_produit');
 Route::get('/categorie/{id}','App\Http\Controllers\shop\maincontroller@viewByCategory')->name('voir_produit_par_cat');
