@@ -13,7 +13,7 @@ class CategoySeeder extends Seeder
      */
     public function run()
     {
-        /* $Categoy1= new \App\Models\Categoy();
+        $Categoy1= new \App\Models\Categoy();
         $Categoy1->nom='Vetements';
         $Categoy1->is_online =1;
         $Categoy1->save();
@@ -46,7 +46,7 @@ class CategoySeeder extends Seeder
         $Categoy7= new \App\Models\Categoy();
         $Categoy7->nom='Divers';
         $Categoy7->is_online =1;
-        $Categoy7->save(); */
+        $Categoy7->save();
 
         $Categoy8= new \App\Models\Categoy();
         $Categoy8->nom='bas';
@@ -126,6 +126,6 @@ class CategoySeeder extends Seeder
         $Categoy20->parent_id =3;
         $Categoy20->save();
 
-        
+
     }
 }

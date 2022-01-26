@@ -10,7 +10,7 @@ use App\Models\Categoy;
 class maincontroller extends Controller
 {
     public function index(){
-        $prod=Produit::all();
+        $prod=Produit::with('categoy')->get();
         //dd($prod);
         return  view('shop.index',compact('prod'));
     }
@@ -22,9 +22,11 @@ class maincontroller extends Controller
     }
 
     public function viewByCategory(Request $req){
-       //$prods= Produit::where("categ", $req->id)->get();
+       //$prods= Produit::where("categoy_id", $req->id)->get();
         $categ=Categoy::find($req->id);
-        dd($categ->produitenf);
+        $prods=$categ->produits();
+        //dd($prods);
+
         return view('shop.categorie',compact('prods','categ'));
     }
 }

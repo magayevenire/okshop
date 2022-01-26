@@ -9,7 +9,11 @@ use App\Models\Categoy;
 class Produit extends Model{
     use HasFactory;
     public function categoy(){
-        return $this->belongsTo(Categoy::class, 'categ', 'id');
+        return $this->belongsTo(Categoy::class);
     }
-    
+
+    public function tags(){
+        return $this->belongsToMany(tag::class);
+    }
+
 }

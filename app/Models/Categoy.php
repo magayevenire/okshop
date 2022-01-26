@@ -14,16 +14,18 @@ class Categoy extends Model
     }
     //récupperer les catégories enfants d'une catégorie
     public function enfant(){
-        return $this->hasMany(Categoy::class,'parent_id');
+        return $this->hasMany(Categoy::class,'parent_id','id');
     }
-
-    //récupperer les produits enfants d'une catégorie
-    public function produit(){
-        return $this->hasMany(Produit::class,'categ' );
+    public function produitparent(){
+        return $this->hasMany(Produit::class);
     }
 
     ////récupperer les produits  enfants d'une catégorie enfants au travers d'une catégorie parent
-    public function produitenf(){
-        return $this->hasManyThrough(Produit::class,Categoy::class,'parent_id','categ');
+   public function produitenf(){
+        return $this->hasManyThrough(Produit::class,Categoy::class,'parent_id','categoy_id');
+    }
+     public function produits(){
+        $produits=$this->produitparent()->with('categoy')->get()->merge($this->produitenf()->with('categoy')->get());
+        return $produits;
     }
 }

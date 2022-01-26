@@ -1,10 +1,9 @@
 @extends ('home')
 @section('content')
-@foreach($prod as $produit)
 
-<div class="album py-5 bg-light">
-    <div class="container">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+
+        @foreach($prod as $produit)
             <div class="col">
                 <div class="card shadow-sm">
                     <img class="card-img-top" src="{{asset('produits/'.$produit->img1)}}" alt="">
@@ -21,8 +20,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-@endforeach
+            @endforeach
+ 
+
 @endsection

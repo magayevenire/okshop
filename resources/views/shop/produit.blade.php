@@ -18,6 +18,11 @@
             <div class="col-6">
                 <h1 class="jumbotron-heading">{{$prodi[0]->ref}}</h1>
 
+                @foreach ($prodi[0]->tags as $tag)
+                    <span class="badge badge-secondary"><a class="text-dark"href="{{route('voir_produit_par_cat',['id'=>$tag->id])}}">{{$tag->nom}}</a></span>
+
+                @endforeach
+
                 <p class="lead text-muted">{{$prodi[0]->descript}}</p>
                 <hr>
                 <label for="size">Choisissez votre Couleur</label>
