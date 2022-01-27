@@ -1,7 +1,9 @@
 @extends('shop')
 @section('content')
 <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
+    <ol class="breadcrumb bg-secondary">
+        @if (isset($categ))
+
         @if ($categ->parent_id!==null)
         <li class="breadcrumb-item active" aria-current="page"><a href="{{route('voir_produit_par_cat',['id'=>$categ->parent->id])}}">{{$categ->parent->nom}}</a></li>
         @endif
@@ -10,6 +12,9 @@
             <li class="breadcrumb-item"><a href="{{route('voir_produit_par_cat',['id'=>$child->id])}}">{{$child->nom}}</a></li>
         @endforeach
 
+        @else
+        <li class="breadcrumb-item active " aria-current="page">{{$tag->nom}}</li>
+        @endif
     </ol>
 </nav>
 <main role="main">

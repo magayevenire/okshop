@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Categoy;
+use Symfony\Component\Console\Helper\Table;
 
 class Produit extends Model{
     use HasFactory;
@@ -16,4 +17,9 @@ class Produit extends Model{
         return $this->belongsToMany(tag::class);
     }
 
+    public function recommandes(){
+      return $this->belongsToMany(Produit::class,'produit_produit','produit_recommande_id','produit_id')->orWhere('produit_id',$this->id);
+      
+
+    }
 }

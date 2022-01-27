@@ -2,7 +2,13 @@
 @section('content')
 
 <main role="main">
-
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-secondary">
+            <li class="breadcrumb-item active" aria-current="page"><a href="{{route('homepage')}}" class="navbar-brand d-flex align-items-center ">Accueil</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="{{route('voir_produit_par_cat',['id'=>$prodi[0]->categoy->parent->id])}}">{{$prodi[0]->categoy->parent->nom}}</a></li>
+            <li class="breadcrumb-item active " aria-current="page"><a href="{{route('voir_produit_par_cat',['id'=>$prodi[0]->categoy->id])}}">{{$prodi[0]->categoy->nom}}</a></li>
+        </ol>
+    </nav>
 
     <div class="container">
 
@@ -19,7 +25,7 @@
                 <h1 class="jumbotron-heading">{{$prodi[0]->ref}}</h1>
 
                 @foreach ($prodi[0]->tags as $tag)
-                    <span class="badge badge-secondary"><a class="text-dark"href="{{route('voir_produit_par_cat',['id'=>$tag->id])}}">{{$tag->nom}}</a></span>
+                <span class="badge badge-secondary"><a class="text-dark"href="{{route('voir_produit_par_tag',['id'=>$tag->id])}}">{{$tag->nom}}</a></span>
 
                 @endforeach
 
@@ -55,45 +61,23 @@
             <h3>Vous aimerez aussi :</h3>
         </div>
         <div class="row">
-            <div class="col-md-4">
-                <div class="card mb-4 box-shadow">
-                    <img src="produits/hulk.jpg" class="card-img-top img-fluid" alt="Responsive image">
+            {{$prodi[0]->recommandes}}
+            @foreach ($prodi[0]->recommandes as $rec)
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img src="{{asset('produits/'.$rec->img1)}}" class="card-img-top img-fluid" alt="Responsive image">
 
-                    <div class="card-body">
-                        <div class="d-flex justify-content-end">
-                            <div class="btn-group">
-                                <a href="#" class="btn btn-sm btn-outline-secondary"><i class="fas fa-eye"></i></a>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-end">
+                                <div class="btn-group">
+                                    <a href="{{route('voir_produit',['ref'=>$rec->ref])}}" class="btn btn-sm btn-outline-secondary"><i class="fas fa-eye"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card mb-4 box-shadow">
-                    <img src="produits/krusty_simpsons.jpg" class="card-img-top img-fluid" alt="Responsive image">
+            @endforeach
 
-                    <div class="card-body">
-                        <div class="d-flex justify-content-end">
-                            <div class="btn-group">
-                                <a href="#" class="btn btn-sm btn-outline-secondary"><i class="fas fa-eye"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card mb-4 box-shadow">
-                    <img src="produits/star_trek_kirk.jpg" class="card-img-top img-fluid" alt="Responsive image">
-
-                    <div class="card-body">
-                        <div class="d-flex justify-content-end">
-                            <div class="btn-group">
-                                <a href="#" class="btn btn-sm btn-outline-secondary"><i class="fas fa-eye"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
 
         </div>

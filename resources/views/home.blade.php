@@ -22,27 +22,30 @@
 
     @include('layout.header')
 
-<main>
+    <main>
 
-  <section class="py-5 text-center ">
+        <section class="py-5 text-center ">
 
-      <div class="container">
-        <h1 class="jumbotron-heading">Oumou Khaïry Shop</h1>
-        <p class="lead text-muted">
-            <h5> Commandez tout ce qui vous fera <br>Plaisir<br>à venir chercher sur place  ou en livraison "tiak-thiak"!</h5>
-        </p>
-    </div>
-  </section>
+            <div class="container">
+                <h1 class="jumbotron-heading">Oumou Khaïry Shop</h1>
+                <p class="lead text-muted">
+                    <h5> Commandez tout ce qui vous fera <br>Plaisir<br>à venir chercher sur place  ou en livraison "tiak-thiak"!</h5>
+                </p>
+            </div>
+        </section>
 
-  <div class="album py-5 bg-light">
-    <div class="container">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            @yield('content')
-
-        </div>
-    </div>
-</div>
-</main>
+                <div class="album py-5 bg-light">
+                    <div class="container">
+                        <div class="album py-5 bg-light">
+                            <div class="container">
+                                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                                    @yield('content')
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </main>
 
 @include('layout.footer')
 

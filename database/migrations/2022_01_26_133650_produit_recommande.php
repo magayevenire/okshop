@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ProdTag extends Migration
+class ProduitRecommande extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,17 @@ class ProdTag extends Migration
      */
     public function up()
     {
-        /*Schema::create('prod_tag', function (Blueprint $table) {
-            $table->unsignedBigInteger('tag_id');
-            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('set null');
+        Schema::create('produit_recommande', function (Blueprint $table) {
+            $table->unsignedBigInteger('produit_recommande_id');
+            $table->foreign('produit_recommande_id')->references('id')->on('produits')->onDelete('set null');
 
             $table->unsignedBigInteger('produit_id');
             $table->foreign('produit_id')->references('id')->on('produits')->onDelete('set null');
 
-            $table->primary(['tag_id','produit_id']);
+            $table->primary(['produit_recommande_id','produit_id']);
 
             Schema::enableForeignKeyConstraints();
         });
-*/
     }
 
     /**
