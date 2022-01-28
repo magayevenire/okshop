@@ -36,8 +36,43 @@ class cartcontroller extends Controller
         session()->flash('success', 'Le produit avec cette taille ou couleur !');
 
     }
+
+    public function updateCart(Request $req)
+    {
+
+        Cart::update(
+            $req->id,
+            [
+                'quantity' => [
+                    'relative' => false,
+                    'value' => $req->quantity
+                ],
+            ]
+        );
+        session()->flash('success', 'Poduit modifié avec succés !');
+
+        return redirect()->route('cart_index');
+    }
+    public function removeCart(Request $request)
+    {
+        Cart::remove($request->id);
+        session()->flash('success', 'Produit supprimé avec succés !');
+
+        return redirect()->route('cart_index');
+    }
+
+    public function clearAllCart()
+    {
+        Cart::clear();
+
+        session()->flash('success', 'All Item Cart Clear Successfully !');
+
+        return redirect()->route('cart_index');
+    }
+
     public function index(){
         $content=Cart::getContent();
-        dd($content);
+        $total_panier=Cart::getTotal();
+        return view('cart.index',compact('content','total_panier'));
     }
 }

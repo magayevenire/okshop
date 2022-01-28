@@ -19,4 +19,6 @@ Route::get('/categorie/{id}','App\Http\Controllers\shop\maincontroller@viewByCat
 Route::get('/tag/{id}','App\Http\Controllers\shop\maincontroller@viewByTag')->name('voir_produit_par_tag');
 Route::post('/panier/add/{ref}','App\Http\Controllers\shop\cartcontroller@add')->name('cart_add');
 Route::get('/panier','App\Http\Controllers\shop\cartcontroller@index')->name('cart_index');
-
+Route::get('/panier/update','App\Http\Controllers\shop\cartcontroller@updateCart')->name('cart.update');
+Route::post('/panier/remove','App\Http\Controllers\shop\cartcontroller@removeCart')->name('cart.remove');
+Route::post('/panier','App\Http\Controllers\shop\cartcontroller@clearAllCart')->name('cart.clear');
