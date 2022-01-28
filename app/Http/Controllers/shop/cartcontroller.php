@@ -19,7 +19,7 @@ class cartcontroller extends Controller
         ]);
         session()->flash('success', 'Product is Added to Cart Successfully !');
 
-        return redirect()->route('cart_ind');
+        return redirect()->route('cart_index');
     }
     public function index(){
         $content=Cart::getContent();

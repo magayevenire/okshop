@@ -17,7 +17,7 @@
 
             <div class="col-6">
                 <div class="card mb-4 box-shadow">
-                    <img class="card-img-top" src="{{asset('produits/'.$prodi[0]->img1)}}" alt="Card image cap">
+                    <img class="card-img-top" width='100px' src="{{asset('produits/'.$prodi[0]->img1)}}" alt="Card image cap">
                 </div>
             </div>
 
@@ -31,23 +31,28 @@
 
                 <p class="lead text-muted">{{$prodi[0]->descript}}</p>
                 <hr>
+                <form action="{{route('cart_add')}}" method="POST" id="panier_add">
+                    @csrf
                 <label for="size">Choisissez votre Couleur</label>
                 <select name="size" id="size" class="form-control">
                     @foreach($prodi as $produit)
-                    <option value="xs">{{$produit->couleur}}</option>
-
+                    <option value="{{$produit->couleur}}">{{$produit->couleur}}</option>
+                    @endforeach
                 </select>
 
                 <hr>
+
                 <label for="size">Choisissez votre taille</label>
                 <select name="size" id="size" class="form-control">
-
+                    @foreach($prodi as $produit)
                     <option value="xs">{{$produit->taille}}</option>
                     @endforeach
+
                 </select>
+                </form>
                 <p>
                     <h5>{{number_format($prodi[0]->prix_ht,0,',',' ')}} Franc CFA</h5>
-                    <a href="#" class="btn btn-cart my-2 btn-block"><i class="fas fa-shopping-cart"></i> Ajouter au Panier</a>
+                    <button type="submit" form='panier_add' class="btn btn-cart my-2 btn-block"><i class="fas fa-shopping-cart"></i> Ajouter au Panier</button>
                 </p>
 
             </div>
@@ -61,7 +66,6 @@
             <h3>Vous aimerez aussi :</h3>
         </div>
         <div class="row">
-            {{$prodi[0]->recommandes}}
             @foreach ($prodi[0]->recommandes as $rec)
                 <div class="col-md-4">
                     <div class="card mb-4 box-shadow">

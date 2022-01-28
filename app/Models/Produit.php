@@ -18,8 +18,8 @@ class Produit extends Model{
     }
 
     public function recommandes(){
-      return $this->belongsToMany(Produit::class,'produit_produit','produit_recommande_id','produit_id')->orWhere('produit_id',$this->id);
-      
+      return $this->belongsToMany(Produit::class,'produit_produit','produit_id','produit_recommande_id');
+
 
     }
 }
