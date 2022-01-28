@@ -1,5 +1,5 @@
 @extends('shop')
-@section('content')
+@section('content')<br><br>
 <main role="main">
     <section class="py-5">
         <div class="container">
@@ -22,7 +22,7 @@
 
                 <tr>
                     <td>
-                        <img width="110" class="img-thumbnail" src="{{asset('produits/'.$proda->attributes['images'])}}" alt="">
+                        <img width="100" class="img-thumbnail" src="{{asset('produits/'.$proda->attributes['images'])}}" alt="">
                         {{$proda->name}}
                     </td>
                     <td>
@@ -41,7 +41,7 @@
                                     <input type="hidden" name="id" value="{{ $proda->id}}" >
                                   <input type="number" name="quantity" value="{{ $proda->quantity }}"
                                   class="w-6 text-center bg-gray-300" />
-                                  <button type="submit" class="px-2 pb-2 ml-2 text-white bg-blue-500"><a  class="pl-2" href=""><i class="fas fa-sync"></i> </a>
+                                  <button type="submit" class="btn btn-block btn-outline-primary"><a  class="pl-2" href=""><i class="fas fa-sync"></i> </a>
                                   </td></button>
                                   </form>
 
@@ -58,7 +58,7 @@
                   <form action="{{ route('cart.remove') }}" method="POST">
                     @csrf
                     <input type="hidden" value="{{ $proda->id }}" name="id">
-                    <button class="px-4 py-2 text-white bg-red-600">x</button>
+                    <button class="btn btn-block btn-outline-danger"><h5>x</h5></button>
                 </form>
 
                 </td>
@@ -73,17 +73,21 @@
 
                 <tr>
                     <td colspan="2"></td>
+                    <td colspan="2"></td>
                     <td>Total TTC</td>
                     <td>{{number_format(($total_panier),0,',',' ')}} Franc CFA</td>
+                    <td>
+                        <form action="{{ route('cart.clear')}}" method="POST">
+                            @csrf
+                            <button class="btn btn-block btn-outline-danger"><h5>Vider le panier</h5> </button>
+                          </form>
+                    </td>
                 </tr>
                 </tfoot>
             </table>
-            <div>
-            <form action="{{ route('cart.clear')}}" method="POST">
-                @csrf
-                <button class="px-6 py-2 text-red-800 bg-red-300">Remove All Cart</button>
-              </form>
-            <a class="btn btn-block btn-outline-dark" href="">Commander</a></div>
+            <div class="d-flex justify-content-between align-items-center">
+
+            <a class="btn btn-block btn-outline-dark" href=""> <h5>Commander</h5></a></div>
         </div>
     </section>
 </main>

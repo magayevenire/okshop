@@ -22,3 +22,4 @@ Route::get('/panier','App\Http\Controllers\shop\cartcontroller@index')->name('ca
 Route::get('/panier/update','App\Http\Controllers\shop\cartcontroller@updateCart')->name('cart.update');
 Route::post('/panier/remove','App\Http\Controllers\shop\cartcontroller@removeCart')->name('cart.remove');
 Route::post('/panier','App\Http\Controllers\shop\cartcontroller@clearAllCart')->name('cart.clear');
+Route::get('/identification','App\Http\Controllers\shop\cartcontroller@identification')->name('identification');

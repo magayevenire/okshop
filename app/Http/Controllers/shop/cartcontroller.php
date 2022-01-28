@@ -16,7 +16,7 @@ class cartcontroller extends Controller
         $size=$req->size;
         $matches=['ref'=>$ref,'couleur'=>$color,'taille'=>$size];
         $prod=Produit::where($matches)->get();
-        //dd($prod[0]);
+
         if ($prod[0]!==null){
             Cart::add([
                 'id' =>$prod[0]->id,
@@ -74,5 +74,11 @@ class cartcontroller extends Controller
         $content=Cart::getContent();
         $total_panier=Cart::getTotal();
         return view('cart.index',compact('content','total_panier'));
+    }
+
+    public function identification(){
+        $content=Cart::getContent();
+        $total_panier=Cart::getTotal();
+        return view('cart.identification',compact('content','total_panier'));
     }
 }
