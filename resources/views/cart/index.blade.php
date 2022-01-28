@@ -41,11 +41,11 @@
                                     <input type="hidden" name="id" value="{{ $proda->id}}" >
                                   <input type="number" name="quantity" value="{{ $proda->quantity }}"
                                   class="w-6 text-center bg-gray-300" />
-                                  <button type="submit" class="px-2 pb-2 ml-2 text-white bg-blue-500">Modifier quant</button>
+                                  <button type="submit" class="px-2 pb-2 ml-2 text-white bg-blue-500"><a  class="pl-2" href=""><i class="fas fa-sync"></i> </a>
+                                  </td></button>
                                   </form>
 
-                                <a  class="pl-2" href=""><i class="fas fa-sync"></i> </a>
-                    </td>
+
                     <td>
                         {{number_format($proda->price,0,',',' ')}} Franc CFA
                     </td>
@@ -78,11 +78,12 @@
                 </tr>
                 </tfoot>
             </table>
+            <div>
             <form action="{{ route('cart.clear')}}" method="POST">
                 @csrf
                 <button class="px-6 py-2 text-red-800 bg-red-300">Remove All Cart</button>
               </form>
-            <a class="btn btn-block btn-outline-dark" href="">Commander</a>
+            <a class="btn btn-block btn-outline-dark" href="">Commander</a></div>
         </div>
     </section>
 </main>
