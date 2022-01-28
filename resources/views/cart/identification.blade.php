@@ -6,7 +6,6 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#">Panier</a></li>
         <li class="breadcrumb-item active" aria-current="page">Identification</li>
-        <li class="breadcrumb-item active" aria-current="page"><a href="#">Paiement</a></li>
         <li class="breadcrumb-item"><a href="#">Merci</a></li>
     </ol>
 </nav>
@@ -156,44 +155,11 @@
             </div>
           </div>
 
-          <div class="row gy-3">
-            <div class="col-md-6">
-              <label for="cc-name" class="form-label">Nom du payeur</label>
-              <input type="text" class="form-control" id="cc-name" placeholder="" required>
-              <small class="text-muted">Nom complet tel qu'affiché sur la carte</small>
-              <div class="invalid-feedback">
-                Le nom est obligatoire
-              </div>
-            </div>
 
-            <div class="col-md-6">
-              <label for="cc-number" class="form-label">Numéro de carte</label>
-              <input type="text" class="form-control" id="cc-number" placeholder="" required>
-              <div class="invalid-feedback">
-                Le numéro de carte est obligatoire.
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <label for="cc-expiration" class="form-label">Date d'expiration</label>
-              <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-              <div class="invalid-feedback">
-                La date d'expiration est obligatoire.
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <label for="cc-cvv" class="form-label">CVV</label>
-              <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-              <div class="invalid-feedback">
-                Le code de sécurité est obligatoire
-              </div>
-            </div>
-          </div>
 
           <hr class="my-4">
 
-          <button class="w-100 btn btn-primary btn-lg" type="submit">Continuer à la caisse</button>
+          <button class="w-100 btn btn-primary btn-lg" type="submit">Passer Commande</button>
         </form>
       </div>
     </div>

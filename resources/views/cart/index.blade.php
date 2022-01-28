@@ -1,5 +1,13 @@
 @extends('shop')
-@section('content')<br><br>
+@section('content')
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Panier</li>
+        <li class="breadcrumb-item "><a href="#">Identification</a></li>
+        <li class="breadcrumb-item "><a href="#">Merci</a></li>
+    </ol>
+</nav>
+
 <main role="main">
     <section class="py-5">
         <div class="container">
@@ -87,7 +95,7 @@
             </table>
             <div class="d-flex justify-content-between align-items-center">
 
-            <a class="btn btn-block btn-outline-dark" href=""> <h5>Commander</h5></a></div>
+            <a class="btn btn-block btn-outline-dark" href="{{ route('identification')}}"> <h5>Commander</h5></a></div>
         </div>
     </section>
 </main>
