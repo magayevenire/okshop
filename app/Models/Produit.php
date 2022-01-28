@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Categoy;
 use Symfony\Component\Console\Helper\Table;
+use Symfony\Component\HttpFoundation\Request;
 
 class Produit extends Model{
     use HasFactory;
@@ -19,7 +20,6 @@ class Produit extends Model{
 
     public function recommandes(){
       return $this->belongsToMany(Produit::class,'produit_produit','produit_id','produit_recommande_id');
-
-
     }
+ 
 }
