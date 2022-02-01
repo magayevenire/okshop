@@ -11,9 +11,19 @@
                 <input class="form-control me-2" type="search" placeholder="Vous désirez ..." aria-label="Search">
                 <button class="btn btn-outline-light" type="submit"><i class='fa fa-search'></i> </button>
             </form>
-            <button class="woni navbar-toggler btn-outline-light" type="button" >
-                <a href="h" class="txt-light"> Connexion </a>
+            @guest
+                <button class="woni navbar-toggler btn-outline-light" type="button" >
+                <a href="{{ route('login') }}" class="txt-light"> Connexion </a>
             </button>
+            @endguest
+
+            @auth
+
+            <button class="woni navbar-toggler btn-outline-light" type="button" >
+                <a href="{{ route('deconnexion') }}" class="txt-light"> Deconnexion </a>
+            </button>
+            @endauth
+
             <style>
                 .woni a {
                     color: White;
@@ -22,8 +32,9 @@
             </style>
 
             <ul class="navbar-nav">
+
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('cart_index') }}"><i class="fa fa-shopping-cart"></i> Panier</a> 
+                    <a class="nav-link" href="{{ route('cart_index') }}"><i class="fa fa-shopping-cart"></i> Panier</a>
                 </li>
             </ul>
             </div>
@@ -31,10 +42,9 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-red">
-    <a class="navbar-brand" href="#"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    @auth
+    <p class="text-light">Bonjour {{ Auth::user()->lastname }}</p>
+        @endauth
     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
         <ul class="navbar-nav">
             @foreach ( $categor as $categ)

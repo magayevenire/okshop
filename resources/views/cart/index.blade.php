@@ -94,8 +94,12 @@
                 </tfoot>
             </table>
             <div class="d-flex justify-content-between align-content-center">
-
-            <a class="btn btn-block btn-outline-success" href="{{ route('identification')}}"> <h5>Commander</h5></a></div>
+            @guest
+                 <a class="btn btn-block btn-outline-success" href="{{ route('login')}}"> <h5>Commander</h5></a></div>
+            @endguest
+            @auth
+            <a class="btn btn-block btn-outline-success" href=""> <h5>Commander</h5></a></div>
+            @endauth
         </div>
     </section>
 </main>

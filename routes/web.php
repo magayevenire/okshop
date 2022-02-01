@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CartController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +25,15 @@ Route::get('/panier/update','App\Http\Controllers\shop\cartcontroller@updateCart
 Route::post('/panier/remove','App\Http\Controllers\shop\cartcontroller@removeCart')->name('cart.remove');
 Route::post('/panier','App\Http\Controllers\shop\cartcontroller@clearAllCart')->name('cart.clear');
 
-//Systéme d'authentification
+//Authentifiacation
 Route::get('/identification','App\Http\Controllers\shop\cartcontroller@identification')->name('identification');
-Route::get('/inscription','App\Http\Controllers\shop\authcontroller@inscription')->name('inscription');
-Route::get('/connexion','App\Http\Controllers\shop\authcontroller@connexion')->name('connexion');
+Route::get('/inscription','App\Http\Controllers\Auth\AuthenticatedSessionController@inscription')->name('inscription');
+Route::get('/deconnexion','App\Http\Controllers\Auth\AuthenticatedSessionController@destroy')->name('deconnexion');
+
+
+
+Route::get('home', function () {
+    return view('home');
+})->middleware(['auth'])->name('home');
+
+require __DIR__.'/auth.php';

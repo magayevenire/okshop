@@ -33,12 +33,12 @@
             </div>
         </section>
 
-                <div class="album py-5 bg-light">
-                    <div class="container">
+                <div class="py-3 bg-light">
+                    <div class="container-fluid">
                         <div class="row ">
 
                                     @yield('content')
-                                
+
                         </div>
                     </div>
                 </div>

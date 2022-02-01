@@ -12,7 +12,7 @@ class ProduitTag extends Migration
      * @return void
      */
     public function up()
-    {
+    {/*
        Schema::create('produit_tag', function (Blueprint $table) {
             $table->unsignedBigInteger('tag_id');
             $table->foreign('tag_id')->references('id')->on('tags')->onDelete('set null');
@@ -23,7 +23,7 @@ class ProduitTag extends Migration
             $table->primary(['tag_id','produit_id']);
 
             Schema::enableForeignKeyConstraints();
-        });
+        });*/
     }
 
     /**

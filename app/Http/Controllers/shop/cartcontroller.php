@@ -14,19 +14,18 @@ class cartcontroller extends Controller
         $ref=$req->ref;
         $color=$req->color;
         $size=$req->size;
-        $matches=['ref'=>$ref,'couleur'=>$color,'taille'=>$size];
+        $matches=['ref'=>$ref,'couleur'=>$color];
         $prod=Produit::where($matches)->get();
 
-        if (!$prod->empty()){
             Cart::add([
-                'id' =>$prod[0]->id,
-                'name' =>$prod[0]->ref,
+                'id'=>$prod[0]->id,
+                'name' =>$ref,
                 'price' => $prod[0]->prix_ht,
                 'quantity' =>1,
                 'attributes' => array(
                     'images'=>$prod[0]->img1,
                     'color' =>$prod[0]->couleur,
-                    'size'=>$prod[0]->taille,
+                    'size'=>$size,
                 )
             ]);
             session()->flash('success', 'Le produit a été ajouté avec succés !');
@@ -34,9 +33,9 @@ class cartcontroller extends Controller
             return redirect()->route('cart_index');
         }
         //session()->flash('error', "Le produit avec cette taille ou couleur n'est pas disponible!");
-        return redirect()->back()->with('error', "Le produit avec cette taille ou couleur n'est pas disponible! Merci de changer de taille ou de couleur.");;
 
-    }
+
+
 
     public function updateCart(Request $req)
     {
