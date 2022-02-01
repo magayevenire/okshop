@@ -16,18 +16,18 @@
 
                 <div class="col-6">
                     <div class="card mb-4 box-shadow">
-                        <img class="card-img-top" width='100px' src="{{asset('produits/'.$prodi[0]->img1)}}" alt="Card image cap">
+                        <img class="card-img-top" width= "100px" height="500px" src="{{asset('produits/'.$prodi[0]->img1)}}" alt="Card image cap">
                     </div>
                 </div>
 
                 <div class="col-6">
-                    <h1 class="jumbotron-heading">{{$prodi[0]->ref}}</h1>
+                    <h1 class="jumbotron-heading " align="center">{{$prodi[0]->ref}}</h1><br> <br>
 
                     @foreach ($prodi[0]->tags as $tag)
-                    <span class="badge badge-secondary"><a class="text-dark"href="{{route('voir_produit_par_tag',['id'=>$tag->id])}}">{{$tag->nom}}</a></span>
+                    <span class="badge bg-secondary"><a class="text-dark"href="{{route('voir_produit_par_tag',['id'=>$tag->id])}}">{{$tag->nom}}</a></span>
                     @endforeach
 
-                    <p class="lead text-muted">{{$prodi[0]->descript}}</p>
+                    <p class="lead text-muted">{{$prodi[0]->descript}}</p> <br>
                     <hr>
                     <form action="{{route('cart_add',['ref'=>$prodi[0]->ref])}}" method="post" id="panier_add">
                         @csrf
@@ -43,8 +43,14 @@
                             @foreach($prodi as $produit)
                             <option value="{{$produit->taille}}">{{$produit->taille}}</option>
                             @endforeach
+
                         </select>
                     </form>
+                    @if(session()->has('error'))
+                            <div class="alert alert-danger">
+                                {{ session()->get('error') }}
+                            </div>
+                            @endif
                     <p>
                         <h5>{{number_format($prodi[0]->prix_ht,0,',',' ')}} Franc CFA</h5>
                         <button type="submit" form='panier_add' class="btn btn-cart my-2 btn-block"><i class="fas fa-shopping-cart"></i>
@@ -64,7 +70,7 @@
                     @foreach ($prodi[0]->recommandes as $rec)
                         <div class="col-md-4">
                             <div class="card mb-4 box-shadow">
-                                <img src="{{asset('produits/'.$rec->img1)}}" class="card-img-top img-fluid" alt="Responsive image">
+                                <img src="{{asset('produits/'.$rec->img1)}}" class="card-img-top"  width= "100px" height="300px" alt="Responsive image">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-end">
                                         <div class="btn-group">

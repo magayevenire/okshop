@@ -9,7 +9,7 @@
             </a>
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Vous désirez ..." aria-label="Search">
-                <button class="btn btn-outline-light" type="submit"> Chercher </button>
+                <button class="btn btn-outline-light" type="submit"><i class='fa fa-search'></i> </button>
             </form>
             <button class="woni navbar-toggler btn-outline-light" type="button" >
                 <a href="h" class="txt-light"> Connexion </a>
@@ -23,7 +23,7 @@
 
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i> Panier</a>
+                    <a class="nav-link" href="{{ route('cart_index') }}"><i class="fa fa-shopping-cart"></i> Panier</a> 
                 </li>
             </ul>
             </div>

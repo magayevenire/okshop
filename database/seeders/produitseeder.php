@@ -13,7 +13,7 @@ class produitseeder extends Seeder
      */
     public function run()
     {
-       /* $prod = new \App\Models\Produit;
+        $prod = new \App\Models\Produit;
         $prod->ref='Abaya Perlé';
         $prod->prix_ht=30000;
         $prod->qte=15;
@@ -22,7 +22,7 @@ class produitseeder extends Seeder
         $prod->descript= 'Magnifique Abaya avec un perlage multicolore existe en différent coloris';
         $prod->img1='abaya_bleu_roi_perle(1).jpg';
         $prod->img2='abaya_bleu_roi_perle(2).jpg';
-        $prod->categ_id=1;
+        $prod->categoy_id=21;
         $prod->save();
 
         $prod = new \App\Models\Produit;
@@ -34,8 +34,8 @@ class produitseeder extends Seeder
         $prod->descript= 'Magnifique Abaya avec un perlage multicolore existe en différent coloris';
         $prod->img1='abaya_mauve_perlé_bas(1).jpg';
         $prod->img2='abaya_mauve_perlé_bas(2).jpg';
-        $prod->categ_id=18;
-        $prod->save();*/
+        $prod->categoy_id=21;
+        $prod->save();
 
         $prod = new \App\Models\Produit;
         $prod->ref='Abaya brodé_fleuri';
@@ -46,7 +46,7 @@ class produitseeder extends Seeder
         $prod->descript= 'Magnifique Abaya avec un perlage multicolore existe en différent coloris';
         $prod->img1='abaya_noir_brodé_fleuri(1).jpg';
         $prod->img2='abaya_noir_brodé_fleuri(2).jpg';
-        $prod->categoy_id=18;
+        $prod->categoy_id=21;
         $prod->save();
 
 
@@ -60,7 +60,7 @@ class produitseeder extends Seeder
         $prod->descript= 'Magnifique Abaya avec une jolie décoration au  fil brillant  bleu';
         $prod->img1='Abaya_bella_noir_fil_bleu(1).jpg';
         $prod->img2='Abaya_bella_noir_fil_bleu(2).jpg';
-        $prod->categoy_id=18;
+        $prod->categoy_id=21;
         $prod->save();
 
         $prod = new \App\Models\Produit;
@@ -72,7 +72,7 @@ class produitseeder extends Seeder
         $prod->descript= 'Joli Abaya  brodé au  fil noir';
         $prod->img1='Abaya_brode_fa_rose(1).jpg';
         $prod->img2='Abaya_brode_fa_rouge(1).jpg';
-        $prod->categoy_id=18;
+        $prod->categoy_id=21;
         $prod->save();
 
         $prod = new \App\Models\Produit;
@@ -84,7 +84,7 @@ class produitseeder extends Seeder
         $prod->descript= 'joli Abaya  brodé au  fil noir';
         $prod->img1='Abaya_brode_fa_turkoise(1).jpg';
         $prod->img2='Abaya_brode_fa_rose(1).jpg';
-        $prod->categoy_id=18;
+        $prod->categoy_id=21;
         $prod->save();
 
         $prod = new \App\Models\Produit;
@@ -96,7 +96,7 @@ class produitseeder extends Seeder
         $prod->descript= 'joli Abaya  brodé au  fil noir';
         $prod->img1='Abaya_brode_fa_rouge(1).jpg';
         $prod->img2='Abaya_brode_fa_rose(1).jpg';
-        $prod->categoy_id=18;
+        $prod->categoy_id=21;
         $prod->save();
 
         $prod = new \App\Models\Produit;
@@ -108,7 +108,7 @@ class produitseeder extends Seeder
         $prod->descript= 'joli Abaya  à imprimé brillant';
         $prod->img1='Abaya_mina_bleu_clair(1).jpg';
         $prod->img2='Abaya_mina_bleu_clair(2).jpg';
-        $prod->categoy_id=18;
+        $prod->categoy_id=21;
         $prod->save();
 
         $prod = new \App\Models\Produit;
@@ -120,7 +120,7 @@ class produitseeder extends Seeder
         $prod->descript= 'joli Abaya  à motif floral doré';
         $prod->img1='Abaya_strass_fa_bleu_nuit(1).jpg';
         $prod->img2='Abaya_strass_fa_bleu_nuit(2).jpg';
-        $prod->categoy_id=18;
+        $prod->categoy_id=21;
         $prod->save();
     }
 

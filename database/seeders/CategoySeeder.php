@@ -126,6 +126,12 @@ class CategoySeeder extends Seeder
         $Categoy20->parent_id =3;
         $Categoy20->save();
 
+        $Categoy20= new \App\Models\Categoy();
+        $Categoy20->nom="Abaya";
+        $Categoy20->is_online =1;
+        $Categoy20->parent_id =1;
+        $Categoy20->save();
+
 
     }
 }

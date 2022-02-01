@@ -15,10 +15,10 @@ class ProduitRecommande extends Migration
     {
         Schema::create('produit_recommande', function (Blueprint $table) {
             $table->unsignedBigInteger('produit_recommande_id');
-            $table->foreign('produit_recommande_id')->references('id')->on('produits')->onDelete('set null');
+            $table->foreign('produit_recommande_id')->references('id')->on('produits')->onDelete('cascade');
 
             $table->unsignedBigInteger('produit_id');
-            $table->foreign('produit_id')->references('id')->on('produits')->onDelete('set null');
+            $table->foreign('produit_id')->references('id')->on('produits')->onDelete('cascade');
 
             $table->primary(['produit_recommande_id','produit_id']);
 

@@ -47,7 +47,7 @@
                                 <form action="{{ route('cart.update') }}" method="GET">
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $proda->id}}" >
-                                  <input type="number" name="quantity" value="{{ $proda->quantity }}"
+                                  <input type="number"  width= "100px" height= "30px" name="quantity" value="{{ $proda->quantity }}"
                                   class="w-6 text-center bg-gray-300" />
                                   <button type="submit" class="btn btn-block btn-outline-primary"><a  class="pl-2" href=""><i class="fas fa-sync"></i> </a>
                                   </td></button>
@@ -66,7 +66,7 @@
                   <form action="{{ route('cart.remove') }}" method="POST">
                     @csrf
                     <input type="hidden" value="{{ $proda->id }}" name="id">
-                    <button class="btn btn-block btn-outline-danger"><h5>x</h5></button>
+                    <button class="btn btn-block btn-outline-danger " ><h5>x</h5></button>
                 </form>
 
                 </td>
@@ -80,22 +80,22 @@
                 <tfoot>
 
                 <tr>
-                    <td colspan="2"></td>
-                    <td colspan="2"></td>
+                    <td colspan="4"></td>
                     <td>Total TTC</td>
                     <td>{{number_format(($total_panier),0,',',' ')}} Franc CFA</td>
-                    <td>
-                        <form action="{{ route('cart.clear')}}" method="POST">
+                    <td >
+                        <form action="{{route('cart.clear')}}" method="POST">
                             @csrf
                             <button class="btn btn-block btn-outline-danger"><h5>Vider le panier</h5> </button>
                           </form>
                     </td>
+
                 </tr>
                 </tfoot>
             </table>
-            <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-content-center">
 
-            <a class="btn btn-block btn-outline-dark" href="{{ route('identification')}}"> <h5>Commander</h5></a></div>
+            <a class="btn btn-block btn-outline-success" href="{{ route('identification')}}"> <h5>Commander</h5></a></div>
         </div>
     </section>
 </main>

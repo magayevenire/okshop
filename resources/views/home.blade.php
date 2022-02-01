@@ -25,7 +25,6 @@
     <main>
 
         <section class="py-5 text-center ">
-
             <div class="container">
                 <h1 class="jumbotron-heading">Oumou Khaïry Shop</h1>
                 <p class="lead text-muted">
@@ -36,12 +35,10 @@
 
                 <div class="album py-5 bg-light">
                     <div class="container">
-                        <div class="album py-5 bg-light">
-                            <div class="container">
-                                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                        <div class="row ">
+
                                     @yield('content')
-                                </div>
-                            </div>
+                                
                         </div>
                     </div>
                 </div>

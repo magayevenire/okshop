@@ -17,7 +17,7 @@ class cartcontroller extends Controller
         $matches=['ref'=>$ref,'couleur'=>$color,'taille'=>$size];
         $prod=Produit::where($matches)->get();
 
-        if ($prod[0]!==null){
+        if (!$prod->empty()){
             Cart::add([
                 'id' =>$prod[0]->id,
                 'name' =>$prod[0]->ref,
@@ -33,7 +33,8 @@ class cartcontroller extends Controller
 
             return redirect()->route('cart_index');
         }
-        session()->flash('success', 'Le produit avec cette taille ou couleur !');
+        //session()->flash('error', "Le produit avec cette taille ou couleur n'est pas disponible!");
+        return redirect()->back()->with('error', "Le produit avec cette taille ou couleur n'est pas disponible! Merci de changer de taille ou de couleur.");;
 
     }
 
@@ -79,6 +80,7 @@ class cartcontroller extends Controller
     public function identification(){
         $content=Cart::getContent();
         $total_panier=Cart::getTotal();
-        return view('cart.identification',compact('content','total_panier'));
+        $nb_art= Cart::getTotalQuantity();
+        return view('cart.identification',compact('content','total_panier','nb_art'));
     }
 }
