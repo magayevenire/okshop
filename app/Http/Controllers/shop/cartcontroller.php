@@ -14,8 +14,11 @@ class cartcontroller extends Controller
         $ref=$req->ref;
         $color=$req->color;
         $size=$req->size;
-        $matches=['ref'=>$ref,'couleur'=>$color];
+        $matches=['ref'=>$ref,'couleur'=>$color,'taille'=>$size];
         $prod=Produit::where($matches)->get();
+
+        if(!$prod->isEmpty()){ //dd($prod,$prod[0]);
+
 
             Cart::add([
                 'id'=>$prod[0]->id,
@@ -29,10 +32,14 @@ class cartcontroller extends Controller
                 )
             ]);
             session()->flash('success', 'Le produit a été ajouté avec succés !');
-
             return redirect()->route('cart_index');
         }
-        //session()->flash('error', "Le produit avec cette taille ou couleur n'est pas disponible!");
+            else{ //dd("non");
+               // session()->flash('error', "Le produit avec cette taille ou couleur n'est pas disponible!");
+                return redirect()->route('voir_produit',['ref'=>$ref])->with('error', "Le produit avec cette taille ou couleur n'est pas disponible!");
+            }
+        }
+
 
 
 

@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Sommaire
 Route::get('/', "App\Http\Controllers\shop\maincontroller@index")->name('homepage');
 Route::get('/produit/{ref}','App\Http\Controllers\shop\maincontroller@produit')->name('voir_produit');
 Route::get('/categorie/{id}','App\Http\Controllers\shop\maincontroller@viewByCategory')->name('voir_produit_par_cat');
@@ -26,9 +27,18 @@ Route::post('/panier/remove','App\Http\Controllers\shop\cartcontroller@removeCar
 Route::post('/panier','App\Http\Controllers\shop\cartcontroller@clearAllCart')->name('cart.clear');
 
 //Authentifiacation
-Route::get('/identification','App\Http\Controllers\shop\cartcontroller@identification')->name('identification');
 Route::get('/inscription','App\Http\Controllers\Auth\AuthenticatedSessionController@inscription')->name('inscription');
 Route::get('/deconnexion','App\Http\Controllers\Auth\AuthenticatedSessionController@destroy')->name('deconnexion');
+
+//Admin
+Route::get('/board', "App\Http\Controllers\adminController@board")->name('board');
+Route::get('/newprod', "App\Http\Controllers\adminController@addprod")->name('newprod');
+Route::get('/updateprod', "App\Http\Controllers\adminController@updateprod")->name('updateprod');
+Route::get('/voirclient', "App\Http\Controllers\adminController@client")->name('voir_client');
+Route::get('/clientlist', "App\Http\Controllers\adminCcontroller@clientlist")->name('clientlist');
+Route::get('/commandes', "App\Http\Controllers\adminController@commande")->name('commandes');
+Route::get('/validercommandes', "App\Http\Controllers\adminController@valcom")->name('valider_commandes');
+
 
 
 

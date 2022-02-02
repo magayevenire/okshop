@@ -1,7 +1,10 @@
+@extends('shop')
+@section('content')
+
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            
+
         </x-slot>
 
         <!-- Validation Errors -->
@@ -44,3 +47,4 @@
         </form>
     </x-auth-card>
 </x-guest-layout>
+@endsection
