@@ -11,7 +11,12 @@
 <main role="main">
     <section class="py-5">
         <div class="container">
-                <h1 class="jumbotron-heading"> <span class="badge badge-primary ">Votre panier </span></h1>
+                <h1 class="jumbotron-heading"align="center"> <span >Votre panier </span></h1> <br> <br>
+                @if(session()->has('error'))
+                    <div class="alert alert-danger">
+                        {{ session()->get('error') }}
+                    </div>
+                @endif
             <table class="table table-bordered table-responsive-sm">
                 <thead>
 
@@ -95,13 +100,19 @@
             </table>
             <div class="d-flex justify-content-between align-content-center">
             @guest
-                 <a class="btn btn-block btn-outline-success" href="{{ route('login')}}"> <h5>Commander</h5></a></div>
+
+                 <form  method="POST" action="{{route('paiepaniervide')}}">
+                    @csrf
+                    <button class="btn btn-block btn-outline-success"><h5>Valider panier</h5> </button>
+                  </form>
             @endguest
             @auth
-            <a class="btn btn-block btn-outline-success" href=""> <h5>Commander</h5></a></div>
+            <form  method="POST" action="{{route('paiepaniervide')}}">
+                @csrf
+                <button class="btn btn-block btn-outline-success"><h5>Valider panier</h5> </button>
+              </form>
             @endauth
         </div>
     </section>
-</main>
 
 @endsection

@@ -89,4 +89,11 @@ class cartcontroller extends Controller
         $nb_art= Cart::getTotalQuantity();
         return view('cart.identification',compact('content','total_panier','nb_art'));
     }
+    public function paiepaniervide(){
+        if (Cart::getTotal()<=0){
+            return redirect()->route('cart_index')->with('error', "Le panier est vide merci de choisir quelques articles à commander!");
+        }
+        return redirect()->route('payment.index');
+    }
+
 }

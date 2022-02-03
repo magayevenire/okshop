@@ -8,6 +8,7 @@
         <meta name="author" content="">
         <link rel="icon" href="{{asset('img/images.jfif')}}">
 
+        @yield('extra-script')
         <title>Oumou Khaïry Shop</title>
 
         <!-- Bootstrap core CSS -->
@@ -15,8 +16,7 @@
 
         <!-- Custom styles for this template -->
         <link href="{{asset('css/tshirt.css')}}" rel="stylesheet">
-        <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
-
+        <script defer src="{{asset('js/all.js')}}" ></script>
       <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -41,17 +41,16 @@
 
 
 <main>
-    
+
 
   @yield('content')
 
 
 </main>
+@yield('extra-js')
 
 @include('layout.footer')
 
 <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
-
-
   </body>
 </html>
