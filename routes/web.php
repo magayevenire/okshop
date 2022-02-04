@@ -51,3 +51,8 @@ Route::get('home', function () {
 })->middleware(['auth'])->name('home');
 
 require __DIR__.'/auth.php';
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
