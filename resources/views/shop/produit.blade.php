@@ -16,7 +16,13 @@
 
                 <div class="col-6">
                     <div class="card mb-4 box-shadow">
-                        <img class="card-img-top" width= "100px" height="500px" src="{{asset('produits/'.$prodi[0]->img1)}}" alt="Card image cap">
+                        <img class="card-img-top" width= "100px" id='mainImage'height="500px" src="{{asset('produits/'.$prodi[0]->img1)}}" alt="Card image cap">
+
+                    </div>
+                    <div class="col-2 d-flex mt-1">
+                        <img w class="thumnail" id= 'thumbnail' height="60px"src='{{asset("produits/".$prodi[0]->img1)}}' alt="ty" >
+                        <img w class="thumnail " height="50px" src='{{asset("produits/".$prodi[0]->img2)}}' alt="ty">
+
                     </div>
                 </div>
 
@@ -86,5 +92,14 @@
         </div>
 
     </main>
+    <script>
+        var mainImage=document.querySelector('#mainImage');
+        var thumnails=document.querySelectorAll('.thumnail');
 
+        thumnails.forEach((element) => element.addEventListener('click',changeImage));
+
+        function changeImage(e){
+            mainImage.src=this.src;
+        }
+    </script>
 @endsection

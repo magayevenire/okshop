@@ -39,6 +39,8 @@ Route::get('/clientlist', "App\Http\Controllers\adminCcontroller@clientlist")->n
 Route::get('/commandes', "App\Http\Controllers\adminController@commande")->name('commandes');
 Route::get('/validercommandes', "App\Http\Controllers\adminController@valcom")->name('valider_commandes');
 
+//search
+Route::get('/search', "App\Http\Controllers\shop\maincontroller@search")->name('produit.search');
 
 //Paiment
 Route::get('/payment', "App\Http\Controllers\paymentController@index")->name('payment.index');

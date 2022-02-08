@@ -11,7 +11,7 @@ use App\Models\tag;
 class maincontroller extends Controller
 {
     public function index(){
-        $prod=Produit::with('categoy')->get();
+        $prod=Produit::with('categoy')->orderBy('created_at','DESC')->get();
         //dd($prod);
         return  view('shop.index',compact('prod'));
     }
@@ -32,5 +32,15 @@ class maincontroller extends Controller
         $tag=tag::find($req->id);
         $prods= $tag->produits;
         return view('shop.categorie',compact('prods','tag'));
+    }
+
+    public function search(){
+        $q= request()->input('q');
+        $prod=Produit::where('ref','like','%'.$q.'%')->orwhere('descript','like','%'.$q.'%')->paginate(6);;
+        //dd($q);
+        return  view('shop.index',compact('prod'));
+
+
+
     }
 }

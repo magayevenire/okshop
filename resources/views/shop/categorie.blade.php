@@ -27,13 +27,13 @@
 
                     <div class="col-md-3">
                         <div class="card mb-4 box-shadow">
-                            <img  width= "100px" height="300px" src="{{asset('produits/'.$produit->img1)}}" class="card-img-top">
+                            <img  width= "100px" height="300px" src="{{asset("storage/".$produit->img1)}} " class="card-img-top">
                             <div class="card-body">
                                 <div class="card-text"><h6 class="d-flex justify-content-between align-items-center">{{$produit->ref}}  <span class="badge bg-secondary">
                                     <a class="text-dark"href="{{route('voir_produit_par_cat',['id'=>$produit->categoy->id])}}">
                                         {{$produit->categoy->nom}}
                                     </a>
-                                </span></h6> 
+                                </span></h6>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span class="price">{{number_format($produit->prix_ht,0,',',' ')}} Franc CFA</span>

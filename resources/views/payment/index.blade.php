@@ -12,11 +12,11 @@
 <p  align="center"> En nous transmettant vos coordonnées enfin de pouvoir mieux traiter votre commande.</p><br>
 <div class="d-flex justify-content-center">
     <div align="right">
-        <form action="{{route('payment.val',['id_p'=>$payment_intent])}}" id='valcom' method="Post">
+        <form action="{{route('payment.val',['id_p'=>$payment_intent])}}" id='valcom' method="GET">
             @csrf
             <div >
                 <label for="name">Nom :</label>
-                <input type="text" id="name" name="user_name" required>
+                <input type="text" id="name" name="name" required>
             </div>
             <div >
                 <label for="prenom">Prénom:</label>

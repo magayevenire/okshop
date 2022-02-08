@@ -11,6 +11,8 @@ use Faker\Provider\ar_SA\Payment;
 use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
 use MongoDB\Driver\Session;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderMail;
 
 
 
@@ -69,16 +71,24 @@ class paymentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function commandMail($nom,$prenom,$tel,$cart,$total){
+        $admins= \App\Models\User::where('role_id','1')->get();
+        foreach($admins as $admin)
+        Mail::to($admin->email)->send(new OrderMail($nom,$prenom,$tel,$cart,$total));
+    }
     public function store(Request $req)
     {
-        $payment_intent =$req->id_p;
+        //$payment_intent =$req->id_p;
         $order = new Order;
-        $order->payment_intent_id = $payment_intent;
+        //$order->payment_intent_id = $payment_intent;
         $order->montant = Cart::getTotal();
+        $carts= Cart::getContent();
+
 
         $prods=[];
         $i=0;
-        foreach(Cart::getContent() as $prod){
+        foreach( $carts as $prod){
             $prods['prod_'.$i][]=$prod->name;
             $prods['prod_'.$i][]=$prod->price;
             $prods['prod_'.$i][]=$prod->quantity;
@@ -93,16 +103,19 @@ class paymentController extends Controller
             $order->name = Auth::user()->name;
             $order->lastname = Auth::user()->lastname;
             $order->tel = Auth::user()->tel;
+            $this->commandMail(Auth::user()->name,Auth::user()->lastname,Auth::user()->tel,$carts,Cart::getTotal());
 
-        }
-        $order->name = $req->user_name;
+        }else{
+        $order->name = $req->name;
         $order->lastname = $req->prenom;
         $order->tel = $req->tel;
         $order->save();
-
+        $this->commandMail($req->user_name,$req->prenom, $req->tel,$carts,Cart::getTotal());
+        }
 
         session()->flash('Success', "Votre commande à été enregistré avec succés. Nous vous recontacterons dans les plus bref délais pour procéder au paiement et à l'expédition de votre commande");
-            Cart::clear();
+
+        Cart::clear();
         return view('shop.merci');
     }
 
