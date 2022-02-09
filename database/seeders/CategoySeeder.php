@@ -72,17 +72,21 @@ class CategoySeeder extends Seeder
         $Categoy11->parent_id =1;
         $Categoy11->save();
 
+        $Categoy13= new \App\Models\Categoy();
+        $Categoy13->nom='Sac';
+        $Categoy13->is_online =1;
+        $Categoy13->save();
+
+        $Categoy19= new \App\Models\Categoy();
+        $Categoy19->nom='Vaisselle';
+        $Categoy19->is_online =1;
+        $Categoy19->save();
+
         $Categoy12= new \App\Models\Categoy();
         $Categoy12->nom='Sandale';
         $Categoy12->is_online =1;
         $Categoy12->parent_id =2;
         $Categoy12->save();
-
-        $Categoy13= new \App\Models\Categoy();
-        $Categoy13->nom='Sandale';
-        $Categoy13->is_online =1;
-        $Categoy13->parent_id =2;
-        $Categoy13->save();
 
         $Categoy14= new \App\Models\Categoy();
         $Categoy14->nom='Talons';
@@ -114,23 +118,23 @@ class CategoySeeder extends Seeder
         $Categoy18->parent_id =3;
         $Categoy18->save();
 
-        $Categoy19= new \App\Models\Categoy();
-        $Categoy19->nom="Collier";
-        $Categoy19->is_online =1;
-        $Categoy19->parent_id =3;
-        $Categoy19->save();
-
         $Categoy20= new \App\Models\Categoy();
-        $Categoy20->nom="Bracelet";
+        $Categoy20->nom="Collier";
         $Categoy20->is_online =1;
         $Categoy20->parent_id =3;
         $Categoy20->save();
 
-        $Categoy20= new \App\Models\Categoy();
-        $Categoy20->nom="Abaya";
-        $Categoy20->is_online =1;
-        $Categoy20->parent_id =1;
-        $Categoy20->save();
+        $Categoy21= new \App\Models\Categoy();
+        $Categoy21->nom="Bracelet";
+        $Categoy21->is_online =1;
+        $Categoy21->parent_id =3;
+        $Categoy21->save();
+
+        $Categoy22= new \App\Models\Categoy();
+        $Categoy22->nom="Abaya";
+        $Categoy22->is_online =1;
+        $Categoy22->parent_id =1;
+        $Categoy22->save();
 
 
     }
